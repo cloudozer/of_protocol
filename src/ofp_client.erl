@@ -703,7 +703,7 @@ init_controller_handle({remote_peer, Host, Port, Proto}, #state{} = State) ->
       controller = {Host, Port, Proto}, socket = undefined, reconnect = true};
 init_controller_handle({socket, Socket, Proto}, #state{} = State) ->
     {ok, {Address, Port}} = inet:peername(Socket),
-    Host = retrieve_hostname_from_address(Address),
+    Host = "localhost",%retrieve_hostname_from_address(Address),
     State#state{
       controller = {Host, Port, Proto}, socket = Socket, reconnect = false}.
 
